@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MyDiploma</string>
+    <string name="home">Стартовая страница</string>
+    <string name="collection">Коллекция</string>
+    <string name="developments">Выставки, События</string>
+    <string name="text">Художественный институт, расположенный в центре Чикаго, является одним из
+        величайших художественных музеев мира, в котором хранится коллекция, охватывающая века
+        и весь мир.</string>
+</resources>
