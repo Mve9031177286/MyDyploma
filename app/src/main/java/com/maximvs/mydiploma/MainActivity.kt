@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
 
+        // ретрофит надо будет перенести при подтягивании даггера
         val retrofit = Retrofit.Builder()
             .baseUrl("https://api.artic.edu/")
             .addConverterFactory(GsonConverterFactory.create())
