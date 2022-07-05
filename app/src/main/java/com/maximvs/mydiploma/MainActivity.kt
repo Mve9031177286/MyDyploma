@@ -3,34 +3,34 @@ package com.maximvs.mydiploma
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.service.autofill.UserData
 import android.view.View
-import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.maximvs.mydiploma.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+        binding.recyclerViewStart.adapter = MyAdapter()
 
-        // ретрофит надо будет перенести при подтягивании даггера
+        // ретрофит п.1 Создаю базу для моего запроса (здесь - мин.набор: домен сервера и конвертер,
+        // чтобы он под капотом парсил JSON-ответ.
         val retrofit = Retrofit.Builder()
             .baseUrl("https://api.artic.edu/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
+        // ретрофит п.3 Сервис для запросов формируется вот так:
         val service = retrofit.create(RetrofitInterface::class.java)
 
-        service.getUsers().enqueue(object : Callback<UsersData> {
+       // ретрофит п.4 При помощи базового экземпляра Retrofit создаю из интерфейса (в котором я
+        // перечислил все методы) объект, который будет отправлять запросы и получать ответы:
+        service.getUsers(Int, String(),Int,Int,String()).enqueue(object : Callback<UsersData> {
             override fun onResponse(call: Call<UsersData>, response: Response<UsersData>) {
                 println(response.body())
             }
