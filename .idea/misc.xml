@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/MyDiploma/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.186" />
+        <entry key="..\:/AndroidStudioProjects/MyDiploma/app/src/main/res/drawable/ic_launcher_background.xml" value="0.186" />
+        <entry key="..\:/AndroidStudioProjects/MyDiploma/app/src/main/res/drawable/minirectangle.xml" value="0.1835" />
         <entry key="..\:/AndroidStudioProjects/MyDiploma/app/src/main/res/drawable/rectangle.xml" value="0.1865" />
         <entry key="..\:/AndroidStudioProjects/MyDiploma/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/MyDiploma/app/src/main/res/layout/activity_three.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/MyDiploma/app/src/main/res/layout/activity_twoo.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/MyDiploma/app/src/main/res/layout/recyclerview_start_item.xml" value="0.24895833333333334" />
       </map>
     </option>
   </component>

@@ -9,31 +9,32 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:background="@color/white"
+        android:background="@drawable/minirectangle"
         android:fontFamily="@font/marck_script"
         android:text="@string/text"
         android:textSize="20sp"
+        android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.011" />
+        app:layout_constraintVertical_bias="0.01" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+        android:id="@+id/constraint_layout"
         android:layout_width="50dp"
         android:layout_height="560dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/text_view">
 
         <android.widget.Button
             android:id="@+id/btn_collection"
@@ -42,6 +43,7 @@
             android:layout_marginBottom="20dp"
             android:rotation="-90"
             android:text="@string/collection"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/btn_development"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,19 +55,21 @@
             android:layout_marginTop="180dp"
             android:rotation="-90"
             android:text="@string/developments"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_collection" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/recycler_view_start"
         android:layout_width="340dp"
         android:layout_height="560dp"
+        tools:listitem="@layout/recyclerview_start_item"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/constraint_layout"
+        app:layout_constraintTop_toBottomOf="@+id/text_view"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 
