@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.maximvs.mydiploma.data.dao.ArtDao
 import com.maximvs.mydiploma.data.entity.Art
 
-@Database(entities = [Art::class], version = 1, exportSchema = true)
+@Database(entities = [Art::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun catDao(): ArtDao
+    abstract fun artDao(): ArtDao
 }

@@ -8,42 +8,55 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:menu="@menu/top_app_bar"
+            app:navigationIcon="@drawable/ic_baseline_clear_all_24"
+            app:title="@string/app_name_toolbar"
+            app:titleTextColor="@android:color/white" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <TextView
         android:id="@+id/text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/six_five"
+        android:layout_marginStart="@dimen/seven"
+        android:layout_marginEnd="@dimen/seven"
         android:background="@drawable/minirectangle"
-        android:fontFamily="@font/marck_script"
+        android:textStyle="italic"
+        android:padding="@dimen/eight"
         android:text="@string/text"
-        android:textSize="20sp"
-        android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="@dimen/one_eight_sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraint_layout"
-        android:layout_width="50dp"
-        android:layout_height="560dp"
+        android:layout_width="@dimen/five_zero"
+        android:layout_height="@dimen/four_seven_seven"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_view">
 
         <android.widget.Button
             android:id="@+id/btn_collection"
             style="@style/btn_other"
-            android:layout_marginTop="80dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="@dimen/eight_zero"
+            android:layout_marginBottom="@dimen/two_zero"
             android:rotation="-90"
             android:text="@string/collection"
-            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/btn_development"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -52,10 +65,9 @@
         <android.widget.Button
             android:id="@+id/btn_development"
             style="@style/btn_other"
-            android:layout_marginTop="180dp"
+            android:layout_marginTop="@dimen/one_eight_zero"
             android:rotation="-90"
             android:text="@string/developments"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_collection" />
@@ -63,14 +75,14 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_start"
-        android:layout_width="340dp"
-        android:layout_height="560dp"
-        tools:listitem="@layout/recyclerview_start_item"
+        android:layout_width="@dimen/zero"
+        android:layout_height="@dimen/zero"
+        android:layout_margin="@dimen/seven"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/constraint_layout"
         app:layout_constraintTop_toBottomOf="@+id/text_view"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
+        tools:listitem="@layout/recyclerview_start_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
