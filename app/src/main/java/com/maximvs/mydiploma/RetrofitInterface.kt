@@ -8,6 +8,6 @@ import retrofit2.http.Query
    // этот метод возвращает в данном случае класс Call (специальный класс для отправки/получения
    // сообщения), который и будет содержать ответ UsersData. UsersData — класс, делаю его под ответ
 interface RetrofitInterface {
-    @GET("api/v1/artworks")
+    @GET("api/v1/artworks?fields=title,artist_title,image_id")
     fun getUsers(): Call<UsersData>
 }

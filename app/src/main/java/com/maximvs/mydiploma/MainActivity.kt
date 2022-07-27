@@ -20,11 +20,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val artAdapter = ArtAdapter()
 
         binding.recyclerViewStart.apply {
 
                 //Присваиваю адаптер
-            binding.recyclerViewStart.adapter = ArtAdapter()
+            binding.recyclerViewStart.adapter = artAdapter
 
                 //Применяю декоратор для отступов
             val decorator = TopSpacingItemDecoration(5)
@@ -46,6 +47,9 @@ class MainActivity : AppCompatActivity() {
         service.getUsers().enqueue(object : Callback<UsersData> {
             override fun onResponse(call: Call<UsersData>, response: Response<UsersData>) {
                 println(response.body())
+                response.body()?.let { artAdapter.addData(it) } // С ?.let все довольно просто.
+                // Если результат body() не null то выполнится код в фигурных скобках. It уже будет
+                // тем, что body вернул, то есть в нашем случае это UserData
             }
 
             override fun onFailure(call: Call<UsersData>, t: Throwable) {
