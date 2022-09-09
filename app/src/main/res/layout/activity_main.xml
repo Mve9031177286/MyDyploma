@@ -78,6 +78,7 @@
         android:layout_width="@dimen/zero"
         android:layout_height="@dimen/zero"
         android:layout_margin="@dimen/seven"
+        android:layoutAnimation="@anim/layout_animation"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

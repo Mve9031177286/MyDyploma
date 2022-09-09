@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1027049862540",
+    "project_id": "mydiploma-5b920",
+    "storage_bucket": "mydiploma-5b920.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1027049862540:android:f54a458ed8388c7cd252a9",
+        "android_client_info": {
+          "package_name": "com.maximvs.mydiploma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1027049862540-69vs66n4eiert89tks3bb6duep8c98un.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.maximvs.mydiploma",
+            "certificate_hash": "84736096c41f84aab79882d2c6519a55745eacff"
+          }
+        },
+        {
+          "client_id": "1027049862540-url9efrtnv4dv27qde3p12815fkpqv84.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSYgM891ypQWuG7hTY6sV-6AkFXexiuOA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1027049862540-url9efrtnv4dv27qde3p12815fkpqv84.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

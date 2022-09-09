@@ -4,9 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide.init
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import com.maximvs.mydiploma.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -14,22 +16,28 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MainActivity : AppCompatActivity() {
+class MainActivity: AppCompatActivity(), ArtAdapter.Listener {
+
+    private var artAdapter: ArtAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val artAdapter = ArtAdapter()
 
-        binding.recyclerViewStart.apply {
+        artAdapter = ArtAdapter(this)
 
-                //Присваиваю адаптер
-            binding.recyclerViewStart.adapter = artAdapter
+        val recyclerView = findViewById < RecyclerView > (R.id.recycler_view_start)
+//Загружаем анимацию, созданную в XML формате
+        val anim = AnimationUtils.loadLayoutAnimation(this, R.anim.layout_animation)
+//Передаем ее в recyclerView
+        recyclerView.layoutAnimation = anim
+//Запускаем анимацию на выполнение
+        recyclerView.scheduleLayoutAnimation()
 
-                //Применяю декоратор для отступов
-            val decorator = TopSpacingItemDecoration(5)
-            addItemDecoration(decorator)
+        with(binding.recyclerViewStart) {
+            adapter = artAdapter
+            addItemDecoration(TopSpacingItemDecoration(5))  //Применяю декоратор для отступов
         }
 
         // ретрофит п.1 Создаю базу для моего запроса (здесь - мин.набор: домен сервера и конвертер,
@@ -46,8 +54,9 @@ class MainActivity : AppCompatActivity() {
         // перечислил все методы) объект, который будет отправлять запросы и получать ответы:
         service.getUsers().enqueue(object : Callback<UsersData> {
             override fun onResponse(call: Call<UsersData>, response: Response<UsersData>) {
-                println(response.body())
-                response.body()?.let { artAdapter.addData(it) } // С ?.let все довольно просто.
+                println("Ответ ${response.body()}")
+                val result = response.body() as? UsersData
+                result?.data?.let { artAdapter?.addData(result.data) } // С ?.let все довольно просто.
                 // Если результат body() не null то выполнится код в фигурных скобках. It уже будет
                 // тем, что body вернул, то есть в нашем случае это UserData
             }
@@ -90,6 +99,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         })
 
+    }
+
+    override fun onClick(artist: Data) {
+       startActivity(Intent(this, ActivityLocal::class.java).apply {
+           putExtra("item", data)
+       })
     }
 
 }
