@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ART INSTITVTE CHICAGO</string>
+    <string name="text">ART INSTITVTE CHICAGO</string>
+    <string name="app_name_toolbar">"ART "</string>
+    <string name="developments">exposiciones, eventos</string>
+    <string name="favour">favoritos</string>
+    <string name="collection">recopilación</string>
+    <string name="home">página de inicio</string>
+</resources>

@@ -20,7 +20,7 @@
             app:menu="@menu/top_app_bar"
             app:navigationIcon="@drawable/ic_baseline_clear_all_24"
             app:title="@string/app_name_toolbar"
-            app:titleTextColor="@android:color/white" />
+            app:titleTextColor="@color/purple_200" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -32,11 +32,12 @@
         android:layout_marginTop="@dimen/six_five"
         android:layout_marginStart="@dimen/seven"
         android:layout_marginEnd="@dimen/seven"
-        android:background="@drawable/minirectangle"
+
         android:textStyle="italic"
         android:padding="@dimen/eight"
         android:text="@string/text"
         android:textSize="@dimen/one_eight_sp"
+        android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,7 +79,6 @@
         android:layout_width="@dimen/zero"
         android:layout_height="@dimen/zero"
         android:layout_margin="@dimen/seven"
-        android:layoutAnimation="@anim/layout_animation"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

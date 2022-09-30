@@ -10,9 +10,9 @@ tools:context=".MainActivity">
     <ImageView
         android:id="@+id/imageViewLocal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="350dp"
         android:layout_marginStart="@dimen/five"
-        android:layout_marginTop="@dimen/five"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="@dimen/five"
         tools:src="@tools:sample/avatars"/>
 
@@ -21,10 +21,10 @@ tools:context=".MainActivity">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/five"
-        android:layout_marginTop="@dimen/five"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="@dimen/five"
         android:padding="@dimen/four"
-        android:textSize="@dimen/three_zero_sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:textAlignment="center"
         android:text="TextView" />
@@ -34,11 +34,24 @@ tools:context=".MainActivity">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/five"
-        android:layout_marginTop="@dimen/five"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="@dimen/five"
         android:padding="@dimen/four"
-        android:textSize="@dimen/three_zero_sp"
+        android:textSize="20sp"
         android:textStyle="bold"
+        android:textAlignment="center"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textViewLocal_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/five"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="@dimen/five"
+        android:padding="@dimen/four"
+        android:textSize="@dimen/two_zero_sp"
+        android:textStyle="italic"
         android:textAlignment="center"
         android:text="TextView" />
 
@@ -52,15 +65,16 @@ tools:context=".MainActivity">
             android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textViewLocal_3"
+            android:id="@+id/textViewLocal_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/five"
-            android:layout_marginTop="@dimen/five"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="@dimen/five"
             android:padding="@dimen/four"
             android:textSize="@dimen/two_zero_sp"
             android:textStyle="italic"
+            android:textAlignment="center"
             android:text="TextView" />
         </LinearLayout>
     </ScrollView>

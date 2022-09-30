@@ -1,14 +1,10 @@
 package com.maximvs.mydiploma
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.animation.AnimationUtils
 import android.widget.Toast
-import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.messaging.FirebaseMessaging
+import androidx.appcompat.app.AppCompatActivity
 import com.maximvs.mydiploma.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -18,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity: AppCompatActivity(), ArtAdapter.Listener {
 
-    private var artAdapter: ArtAdapter? = null
+    private lateinit var artAdapter: ArtAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,16 +23,10 @@ class MainActivity: AppCompatActivity(), ArtAdapter.Listener {
 
         artAdapter = ArtAdapter(this)
 
-        val recyclerView = findViewById < RecyclerView > (R.id.recycler_view_start)
-//Загружаем анимацию, созданную в XML формате
-        val anim = AnimationUtils.loadLayoutAnimation(this, R.anim.layout_animation)
-//Передаем ее в recyclerView
-        recyclerView.layoutAnimation = anim
-//Запускаем анимацию на выполнение
-        recyclerView.scheduleLayoutAnimation()
-
+        // Функция with позволяет выполнить несколько операций над одним объектом, не повторяя его имени.
         with(binding.recyclerViewStart) {
             adapter = artAdapter
+            // itemAnimator = MyItemAnimator(applicationContext)
             addItemDecoration(TopSpacingItemDecoration(5))  //Применяю декоратор для отступов
         }
 
@@ -102,10 +92,16 @@ class MainActivity: AppCompatActivity(), ArtAdapter.Listener {
     }
 
     override fun onClick(artist: Data) {
-       startActivity(Intent(this, ActivityLocal::class.java).apply {
-           putExtra("item", data)
-       })
-    }
+           val bundle = Bundle()
+           bundle.putString("b1", artist.image_id)
+           bundle.putString("b2", artist.title)
+           bundle.putString("b3", artist.artist_title)
+           bundle.putString("b4", artist.date_display)
+           bundle.putString("b5", artist.artist_display)
 
+           val intent = Intent(this, ActivityLocal::class.java)
+           intent.putExtra("bundle", bundle)
+           startActivity(intent)
+    }
 }
 
